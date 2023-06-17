@@ -27,10 +27,13 @@ import MyStatusBar from '../../components/MyStatusBar';
 import GetApi from '../../hooks/GetApi';
 import apis from '../../consts/apis';
 import PostApi from '../../hooks/PostApi';
+import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-export default function ForgotPassword({navigation}) {
+export default function ForgotPassword() {
+  const navigation = useNavigation();
+
   const tw = useTailwind();
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');

@@ -33,11 +33,12 @@ import PostApi from '../../hooks/PostApi';
 import GetApi from '../../hooks/GetApi';
 import apis from '../../consts/apis';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import BackIcon from '../../assets/icons/back.svg';
+import {useNavigation} from '@react-navigation/native';
 
 const windowHeight = Dimensions.get('window').height;
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = () => {
+  const navigation = useNavigation();
   const tw = useTailwind();
   const setUser = useSetRecoilState(userAtom);
   const setUserData = useSetRecoilState(userDataAtom);

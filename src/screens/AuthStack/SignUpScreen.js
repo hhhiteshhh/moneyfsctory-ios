@@ -31,9 +31,13 @@ import MyStatusBar from '../../components/MyStatusBar';
 import Info from '../../assets/icons/info.svg';
 import PostApi from '../../hooks/PostApi';
 import apis from '../../consts/apis';
+import {useNavigation} from '@react-navigation/native';
+
 const windowHeight = Dimensions.get('window').height;
 
-export default function SignUp({navigation}) {
+export default function SignUp() {
+  const navigation = useNavigation();
+
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');

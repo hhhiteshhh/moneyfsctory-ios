@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from '../components/SplashScreen';
 import StackNavigator from '../components/StackNavigator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useRecoilValue, useSetRecoilState} from 'recoil';
+import {useRecoilState, useSetRecoilState} from 'recoil';
 import {userAtom} from '../atoms/userAtom';
 import {userDataAtom} from '../atoms/userDataAtom';
 
@@ -11,8 +11,7 @@ export default function Routes() {
   const [ready, setReady] = useState(false);
   const [oldUser, setOldUser] = useState(false);
   const setUserData = useSetRecoilState(userDataAtom);
-  const user = useRecoilValue(userAtom);
-  const setUser = useSetRecoilState(userAtom);
+  const [user, setUser] = useRecoilState(userAtom);
 
   const toggleMain = () => {
     setTimeout(() => {

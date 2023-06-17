@@ -9,14 +9,14 @@
 			"position": "relative"
 		}
 	},
-	"top-0": {
-		"style": {
-			"top": 0
-		}
-	},
 	"right-4": {
 		"style": {
 			"right": 16
+		}
+	},
+	"top-0": {
+		"style": {
+			"top": 0
 		}
 	},
 	"top-3": {
@@ -29,10 +29,64 @@
 			"top": 24
 		}
 	},
-	"mx-8": {
+	"right-0": {
 		"style": {
-			"marginLeft": 32,
-			"marginRight": 32
+			"right": 0
+		}
+	},
+	"left-5": {
+		"style": {
+			"left": 20
+		}
+	},
+	"-bottom-2": {
+		"style": {
+			"bottom": -8
+		}
+	},
+	"left-6": {
+		"style": {
+			"left": 24
+		}
+	},
+	"right-5": {
+		"style": {
+			"right": 20
+		}
+	},
+	"top-[16px]": {
+		"style": {
+			"top": 16
+		}
+	},
+	"top-[48px]": {
+		"style": {
+			"top": 48
+		}
+	},
+	"-left-1": {
+		"style": {
+			"left": -4
+		}
+	},
+	"left-0": {
+		"style": {
+			"left": 0
+		}
+	},
+	"left-3": {
+		"style": {
+			"left": 12
+		}
+	},
+	"top-16": {
+		"style": {
+			"top": 64
+		}
+	},
+	"-top-2": {
+		"style": {
+			"top": -8
 		}
 	},
 	"mx-3": {
@@ -47,6 +101,12 @@
 			"marginRight": 16
 		}
 	},
+	"mx-8": {
+		"style": {
+			"marginLeft": 32,
+			"marginRight": 32
+		}
+	},
 	"mx-auto": {
 		"style": {
 			"marginLeft": "auto",
@@ -59,19 +119,16 @@
 			"marginBottom": 20
 		}
 	},
-	"ml-5": {
+	"my-3": {
 		"style": {
-			"marginLeft": 20
+			"marginTop": 12,
+			"marginBottom": 12
 		}
 	},
-	"mr-5": {
+	"my-2": {
 		"style": {
-			"marginRight": 20
-		}
-	},
-	"mt-5": {
-		"style": {
-			"marginTop": 20
+			"marginTop": 8,
+			"marginBottom": 8
 		}
 	},
 	"-mt-2": {
@@ -84,9 +141,19 @@
 			"marginLeft": 12
 		}
 	},
+	"ml-5": {
+		"style": {
+			"marginLeft": 20
+		}
+	},
 	"mr-2": {
 		"style": {
 			"marginRight": 8
+		}
+	},
+	"mr-5": {
+		"style": {
+			"marginRight": 20
 		}
 	},
 	"mt-3": {
@@ -94,14 +161,79 @@
 			"marginTop": 12
 		}
 	},
-	"mt-8": {
+	"mt-5": {
 		"style": {
-			"marginTop": 32
+			"marginTop": 20
 		}
 	},
 	"mt-6": {
 		"style": {
 			"marginTop": 24
+		}
+	},
+	"mt-8": {
+		"style": {
+			"marginTop": 32
+		}
+	},
+	"ml-2": {
+		"style": {
+			"marginLeft": 8
+		}
+	},
+	"mt-1": {
+		"style": {
+			"marginTop": 4
+		}
+	},
+	"mt-20": {
+		"style": {
+			"marginTop": 80
+		}
+	},
+	"mt-10": {
+		"style": {
+			"marginTop": 40
+		}
+	},
+	"mt-14": {
+		"style": {
+			"marginTop": 56
+		}
+	},
+	"mb-5": {
+		"style": {
+			"marginBottom": 20
+		}
+	},
+	"mt-2": {
+		"style": {
+			"marginTop": 8
+		}
+	},
+	"mb-3": {
+		"style": {
+			"marginBottom": 12
+		}
+	},
+	"ml-4": {
+		"style": {
+			"marginLeft": 16
+		}
+	},
+	"ml-9": {
+		"style": {
+			"marginLeft": 36
+		}
+	},
+	"mt-4": {
+		"style": {
+			"marginTop": 16
+		}
+	},
+	"mt-9": {
+		"style": {
+			"marginTop": 36
 		}
 	},
 	"flex": {
@@ -114,29 +246,54 @@
 			"display": "none"
 		}
 	},
-	"h-full": {
-		"style": {
-			"height": "100%"
-		}
-	},
 	"h-4": {
 		"style": {
 			"height": 16
 		}
 	},
-	"h-6": {
+	"h-full": {
 		"style": {
-			"height": 24
+			"height": "100%"
 		}
 	},
-	"w-full": {
+	"h-[10px]": {
 		"style": {
-			"width": "100%"
+			"height": 10
+		}
+	},
+	"h-20": {
+		"style": {
+			"height": 80
+		}
+	},
+	"h-[108px]": {
+		"style": {
+			"height": 108
+		}
+	},
+	"h-10": {
+		"style": {
+			"height": 40
+		}
+	},
+	"h-32": {
+		"style": {
+			"height": 128
+		}
+	},
+	"h-12": {
+		"style": {
+			"height": 48
 		}
 	},
 	"w-4": {
 		"style": {
 			"width": 16
+		}
+	},
+	"w-[25%]": {
+		"style": {
+			"width": "25%"
 		}
 	},
 	"w-[30%]": {
@@ -149,14 +306,44 @@
 			"width": "50%"
 		}
 	},
-	"w-[25%]": {
+	"w-full": {
 		"style": {
-			"width": "25%"
+			"width": "100%"
 		}
 	},
-	"w-6": {
+	"w-[10px]": {
 		"style": {
-			"width": 24
+			"width": 10
+		}
+	},
+	"w-20": {
+		"style": {
+			"width": 80
+		}
+	},
+	"w-10": {
+		"style": {
+			"width": 40
+		}
+	},
+	"w-32": {
+		"style": {
+			"width": 128
+		}
+	},
+	"w-1/2": {
+		"style": {
+			"width": "50%"
+		}
+	},
+	"w-12": {
+		"style": {
+			"width": 48
+		}
+	},
+	"w-[70%]": {
+		"style": {
+			"width": "70%"
 		}
 	},
 	"flex-1": {
@@ -181,6 +368,11 @@
 			"alignItems": "center"
 		}
 	},
+	"justify-start": {
+		"style": {
+			"justifyContent": "flex-start"
+		}
+	},
 	"justify-end": {
 		"style": {
 			"justifyContent": "flex-end"
@@ -196,14 +388,6 @@
 			"justifyContent": "space-between"
 		}
 	},
-	"rounded-xl": {
-		"style": {
-			"borderTopLeftRadius": 12,
-			"borderTopRightRadius": 12,
-			"borderBottomRightRadius": 12,
-			"borderBottomLeftRadius": 12
-		}
-	},
 	"rounded-md": {
 		"style": {
 			"borderTopLeftRadius": 6,
@@ -212,12 +396,50 @@
 			"borderBottomLeftRadius": 6
 		}
 	},
+	"rounded-xl": {
+		"style": {
+			"borderTopLeftRadius": 12,
+			"borderTopRightRadius": 12,
+			"borderBottomRightRadius": 12,
+			"borderBottomLeftRadius": 12
+		}
+	},
+	"rounded-full": {
+		"style": {
+			"borderTopLeftRadius": 9999,
+			"borderTopRightRadius": 9999,
+			"borderBottomRightRadius": 9999,
+			"borderBottomLeftRadius": 9999
+		}
+	},
+	"border": {
+		"style": {
+			"borderTopWidth": 1,
+			"borderRightWidth": 1,
+			"borderBottomWidth": 1,
+			"borderLeftWidth": 1
+		}
+	},
+	"bg-white": {
+		"style": {
+			"--tw-bg-opacity": 1,
+			"backgroundColor": "rgb(255 255 255 / var(--tw-bg-opacity))"
+		}
+	},
 	"p-3": {
 		"style": {
 			"paddingTop": 12,
 			"paddingRight": 12,
 			"paddingBottom": 12,
 			"paddingLeft": 12
+		}
+	},
+	"p-2": {
+		"style": {
+			"paddingTop": 8,
+			"paddingRight": 8,
+			"paddingBottom": 8,
+			"paddingLeft": 8
 		}
 	},
 	"px-5": {
@@ -232,6 +454,35 @@
 			"paddingBottom": 12
 		}
 	},
+	"py-5": {
+		"style": {
+			"paddingTop": 20,
+			"paddingBottom": 20
+		}
+	},
+	"px-4": {
+		"style": {
+			"paddingLeft": 16,
+			"paddingRight": 16
+		}
+	},
+	"px-2": {
+		"style": {
+			"paddingLeft": 8,
+			"paddingRight": 8
+		}
+	},
+	"px-3": {
+		"style": {
+			"paddingLeft": 12,
+			"paddingRight": 12
+		}
+	},
+	"pb-1": {
+		"style": {
+			"paddingBottom": 4
+		}
+	},
 	"pl-2": {
 		"style": {
 			"paddingLeft": 8
@@ -242,9 +493,19 @@
 			"paddingTop": 12
 		}
 	},
-	"pb-1": {
+	"pl-20": {
 		"style": {
-			"paddingBottom": 4
+			"paddingLeft": 80
+		}
+	},
+	"pb-3": {
+		"style": {
+			"paddingBottom": 12
+		}
+	},
+	"pl-3": {
+		"style": {
+			"paddingLeft": 12
 		}
 	},
 	"text-center": {
@@ -265,6 +526,11 @@
 	"font-semibold": {
 		"style": {
 			"fontWeight": "600"
+		}
+	},
+	"font-medium": {
+		"style": {
+			"fontWeight": "500"
 		}
 	}
 }

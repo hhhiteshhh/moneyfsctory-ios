@@ -17,9 +17,11 @@ import ArrowLeft from '../../assets/icons/left.svg';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../assets/colors';
 import MyStatusBar from '../../components/MyStatusBar';
+import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
-export default function SliderScreen({navigation}) {
+export default function SliderScreen() {
+  const navigation = useNavigation();
   const tw = useTailwind();
   const [index, setIndex] = useState(0);
   const setUserAsOld = async () => {
