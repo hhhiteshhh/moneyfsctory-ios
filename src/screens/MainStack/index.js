@@ -14,6 +14,9 @@ import Notifications from './CommonScreens/Notifications';
 import MyProfile from './CommonScreens/ProfileStack/MyProfile';
 import Refer from './CommonScreens/ProfileStack/Refer';
 import ChangePassword from './CommonScreens/ProfileStack/ChangePassword';
+import MyInvoices from './CommonScreens/ProfileStack/MyInvoices';
+import MyOrders from './CommonScreens/ProfileStack/MyOrders';
+import SubscribedPlan from './CommonScreens/ProfileStack/SubscribedPlan';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -125,6 +128,21 @@ const Login = () => {
       <Stack.Screen
         name="ChangePassword"
         component={ChangePassword}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyInvoices"
+        component={MyInvoices}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyOrders"
+        component={MyOrders}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SubscribedPlan"
+        component={SubscribedPlan}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

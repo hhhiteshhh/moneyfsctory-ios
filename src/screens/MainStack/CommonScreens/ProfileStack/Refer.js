@@ -95,7 +95,6 @@ Happy Investing!`;
   }, [user.id]);
   async function fetchCash() {
     setLoading(true);
-
     let result = await PostApi(apis.cash, {
       user: user.id,
     });
@@ -320,6 +319,11 @@ const styles = StyleSheet.create({
     height: windowHeight,
     position: 'absolute',
     width: '100%',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
   },
   container: {
     backgroundColor: Colors.eerie,

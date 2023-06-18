@@ -35,6 +35,7 @@ const apis = {
   video: '/api/all/media',
   trendingQuants: '/api/all/trendingquants',
   holding: '/api/smallcase/holding',
+  invoices: '/api/profile/transactions',
 };
 
 export default apis;
