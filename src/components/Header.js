@@ -9,6 +9,7 @@ import React, {useState, useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import MenuIcon from '../assets/icons/menu.svg';
 import BellIcon from '../assets/icons/bell.svg';
+import BackIcon from '../assets/icons/back.svg';
 import ProfileIcon from '../assets/icons/ProfileIcon.svg';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../atoms/userDataAtom';
@@ -20,10 +21,12 @@ import {useNavigation} from '@react-navigation/native';
 import ProfilePage from '../screens/MainStack/CommonScreens/ProfileStack/ProfilePage';
 
 const windowHeight = Dimensions.get('window').height;
-const Header = () => {
+const Header = ({title, back}) => {
   const tw = useTailwind();
   const navigation = useNavigation();
-
+  const goBack = () => {
+    navigation.goBack();
+  };
   const user = useRecoilValue(userDataAtom);
   const [orders, setOrders] = useState([]);
   const [profileDrawer, setProfileDrawer] = useState(false);
@@ -44,10 +47,14 @@ const Header = () => {
   return (
     <View style={[tw('flex flex-row items-center justify-between px-5'), {}]}>
       <View style={[tw('flex flex-row items-center flex-1')]}>
-        <MenuIcon />
-        <Text style={[tw('font-bold ml-3'), styles.header]}>
-          Welcome {user.name}!
-        </Text>
+        {back ? (
+          <TouchableOpacity onPress={goBack}>
+            <BackIcon />
+          </TouchableOpacity>
+        ) : (
+          <MenuIcon />
+        )}
+        <Text style={[tw('font-bold ml-3'), styles.header]}>{title}</Text>
       </View>
       <TouchableOpacity
         onPress={navigateToNotifications}
