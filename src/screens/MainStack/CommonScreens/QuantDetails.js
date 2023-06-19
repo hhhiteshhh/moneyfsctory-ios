@@ -178,7 +178,6 @@ const QuantDetails = ({route, orders}) => {
     if (subscribe) {
       try {
         setLoading(true);
-        console.log(multiplier[0]);
         const options = {
           quantId: quantData._id,
           userId: user?.data.id,
@@ -195,7 +194,6 @@ const QuantDetails = ({route, orders}) => {
           subscribedPrice: quantData.price * multiplier[0],
         };
         let result = await PostApi(apis.deployQuants, options);
-        console.log(result);
         if (result.status === 200) {
           let result2 = await PostApi(apis.createSignal, sigoptions);
           if (result2.status === 200) {

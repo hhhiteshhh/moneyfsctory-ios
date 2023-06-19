@@ -115,9 +115,9 @@ const MyQuantDetails = ({route}) => {
           start={{x: 0, y: 0}}
           end={{x: 0.5, y: 0}}
           colors={[Colors.card1, Colors.card2]}
-          style={tw('pb-5')}>
+          style={tw('pb-')}>
           <MyStatusBar padding={20} transparent />
-          <View style={[tw('my-3'), {}]}>
+          <View style={[tw('mb-3'), {}]}>
             <Header title={`${data?.quant?.quant?.name} Details`} back={true} />
           </View>
         </LinearGradient>

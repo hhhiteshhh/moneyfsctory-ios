@@ -17,6 +17,9 @@ import ChangePassword from './CommonScreens/ProfileStack/ChangePassword';
 import MyInvoices from './CommonScreens/ProfileStack/MyInvoices';
 import MyOrders from './CommonScreens/ProfileStack/MyOrders';
 import SubscribedPlan from './CommonScreens/ProfileStack/SubscribedPlan';
+import MyQuants from './CommonScreens/MyQuants';
+import MyQuantDetails from './CommonScreens/MyQuantDetails';
+import QuantDetails from './CommonScreens/QuantDetails';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -143,6 +146,21 @@ const Login = () => {
       <Stack.Screen
         name="SubscribedPlan"
         component={SubscribedPlan}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyQuants"
+        component={MyQuants}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyQuantDetails"
+        component={MyQuantDetails}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="QuantDetails"
+        component={QuantDetails}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -12,9 +12,6 @@ import {
 import React, {useState, useEffect} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../assets/colors';
-import MenuIcon from '../../../assets/icons/menu.svg';
-import BellIcon from '../../../assets/icons/bell.svg';
-import Filter from '../../../assets/icons/filter.svg';
 import Search from '../../../assets/icons/search.svg';
 import MyQuantCard from '../../../components/MyQuantCard';
 import apis from '../../../consts/apis';
@@ -41,7 +38,6 @@ const MyQuants = () => {
   };
   const tw = useTailwind();
   const [quants, setQuants] = useState([]);
-
   async function fetchMyQuants() {
     setLoading(true);
     let result = await GetApi(`${apis.myQuants}/${user?.id}`);
@@ -53,9 +49,6 @@ const MyQuants = () => {
   useEffect(() => {
     fetchMyQuants();
   }, []);
-  const navigateToNotifications = () => {
-    navigation.navigate('Notifications');
-  };
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
       <View style={[tw('h-full '), styles.container]}>
