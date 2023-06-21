@@ -102,7 +102,7 @@ const Discover = () => {
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
       <View style={[tw('h-full '), styles.container]}>
         <MyStatusBar padding={20} />
-        <Header title={`Welcome ${user.name}!`} back={false} />
+        <Header title={`Hello ${user.name.split(' ')[0]}!`} back={false} />
         <View style={[tw('px-5 mt-3 relative')]}>
           <TextInput
             placeholder="Search"

@@ -90,6 +90,10 @@
   top: 16px
 }
 
+.z-50 {
+  z-index: 50
+}
+
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem
@@ -115,6 +119,11 @@
   margin-right: auto
 }
 
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem
+}
+
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem
@@ -128,11 +137,6 @@
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem
-}
-
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem
 }
 
 .-ml-2 {
@@ -149,6 +153,10 @@
 
 .-mt-3 {
   margin-top: -0.75rem
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem
 }
 
 .mb-3 {
@@ -239,10 +247,6 @@
   margin-top: 2.25rem
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem
-}
-
 .flex {
   display: flex
 }
@@ -293,6 +297,26 @@
 
 .h-full {
   height: 100%
+}
+
+.h-\[\] {
+  height: 
+}
+
+.h-\[8\] {
+  height: 8
+}
+
+.h-\[85\] {
+  height: 85
+}
+
+.h-\[85p\] {
+  height: 85p
+}
+
+.h-\[85px\] {
+  height: 85px
 }
 
 .w-1\/2 {
@@ -363,6 +387,10 @@
   width: 40%
 }
 
+.w-\[48\%\] {
+  width: 48%
+}
+
 .w-\[49\%\] {
   width: 49%
 }
@@ -383,10 +411,6 @@
   width: 100%
 }
 
-.w-\[48\%\] {
-  width: 48%
-}
-
 .flex-1 {
   flex: 1 1 0%
 }
@@ -395,8 +419,20 @@
   flex-direction: row
 }
 
+.flex-col {
+  flex-direction: column
+}
+
+.flex-wrap {
+  flex-wrap: wrap
+}
+
 .items-start {
   align-items: flex-start
+}
+
+.items-end {
+  align-items: flex-end
 }
 
 .items-center {
@@ -419,6 +455,10 @@
   justify-content: space-between
 }
 
+.overflow-hidden {
+  overflow: hidden
+}
+
 .rounded-full {
   border-radius: 9999px
 }
@@ -431,6 +471,10 @@
   border-radius: 0.75rem
 }
 
+.rounded-lg {
+  border-radius: 0.5rem
+}
+
 .rounded-b-none {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px
@@ -438,6 +482,15 @@
 
 .border {
   border-width: 1px
+}
+
+.border-b {
+  border-bottom-width: 1px
+}
+
+.border-\[\#333333\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(51 51 51 / var(--tw-border-opacity))
 }
 
 .bg-white {
@@ -501,6 +554,16 @@
   padding-right: 1rem
 }
 
+.px-7 {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem
+}
+
 .pb-1 {
   padding-bottom: 0.25rem
 }
@@ -561,12 +624,16 @@
   padding-right: 2.25rem
 }
 
+.pt-1 {
+  padding-top: 0.25rem
+}
+
 .pt-3 {
   padding-top: 0.75rem
 }
 
-.pt-1 {
-  padding-top: 0.25rem
+.pr-3 {
+  padding-right: 0.75rem
 }
 
 .text-center {

@@ -34,6 +34,7 @@ import Pause from '../../../assets/icons/pause.svg';
 import ExitAll from '../../../assets/icons/exitAll.svg';
 import Exit from '../../../assets/icons/exit.svg';
 import {trendingQuantsAtom} from '../../../atoms/trendingQuantsAtom';
+import OpenOrderCard from '../../../components/OpenOrderCard';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -47,6 +48,7 @@ const Dashboard = () => {
   const [quants, setQuants] = useState([]);
   const [quantSelected, setQuantSelected] = useState();
   const [detailsModal, setDetailsModal] = useState(false);
+  const [orders, setOrders] = useState([]);
   const [trendingQuants, setTrendingQuants] =
     useRecoilState(trendingQuantsAtom);
   const navigateToMyQuantDetails = () => {
@@ -123,10 +125,17 @@ const Dashboard = () => {
       setLoading(false);
     }
   }
+  async function fetchorders() {
+    let result = await GetApi(`${apis.openOrders}/${user?.id}`);
+    if (result.status === 200) {
+      setOrders(result.data);
+    }
+  }
 
   useEffect(() => {
     fetchMyQuants();
     fetchHoldings();
+    fetchorders();
     if (trendingQuants.length > 0) {
     } else {
       fetchTrendingQuants();
@@ -142,11 +151,12 @@ const Dashboard = () => {
       );
     }
   };
+
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
       <MyStatusBar padding={20} />
       <View style={[tw('mb-3')]}>
-        <Header title={`Welcome ${user.name}!`} back={false} />
+        <Header title={`Hello ${user.name.split(' ')[0]}!`} back={false} />
       </View>
       <ScrollView
         style={[tw('h-full'), styles.container]}
@@ -261,7 +271,7 @@ const Dashboard = () => {
               <View
                 style={[
                   tw(
-                    'flex flex-row items-center justify-between w-full h-20 rounded-md p-3 my-1',
+                    'flex flex-row items-center justify-between w-full h-[85px] rounded-md p-3 my-1',
                   ),
                   {
                     backgroundColor: Colors.bgcolor1,
@@ -272,7 +282,7 @@ const Dashboard = () => {
               <View
                 style={[
                   tw(
-                    'flex flex-row my-1  items-center justify-between w-full h-20 rounded-md p-3 my-1',
+                    'flex flex-row items-center justify-between w-full h-[85px] rounded-md p-3 my-1',
                   ),
                   {
                     backgroundColor: Colors.bgcolor1,
@@ -283,11 +293,11 @@ const Dashboard = () => {
               <View
                 style={[
                   tw(
-                    'flex flex-row my-1 items-center justify-between w-full h-20 rounded-md p-3 my-1',
+                    'flex flex-row items-center justify-between w-full h-[85px] rounded-md p-3 my-1',
                   ),
                   {
                     backgroundColor: Colors.bgcolor1,
-                    marginBottom: 4,
+                    // marginBottom: 4,
                     marginTop: 4,
                   },
                 ]}></View>
@@ -302,6 +312,13 @@ const Dashboard = () => {
             setDetailsModal={setDetailsModal}
           />
         ))}
+        {!loading && quants.length <= 0 && (
+          <View>
+            <Text style={[tw('font-bold mb-2'), styles.subheader]}>
+              No Active Quant
+            </Text>
+          </View>
+        )}
 
         <View style={tw('mt-5 px-5')}>
           <View style={[tw('flex flex-row items-center justify-between')]}>
@@ -406,6 +423,47 @@ const Dashboard = () => {
           </ScrollView>
         </View>
 
+        <View style={tw('mt-5 px-5')}>
+          <View style={[tw('flex flex-row items-center justify-between')]}>
+            <Text style={[tw('font-bold mb-2'), styles.subheader]}>
+              Open Orders
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Notifications');
+              }}>
+              <Text
+                style={[
+                  tw('font-bold mb-2'),
+                  {fontSize: 16, lineHeight: 22, color: Colors.yellow},
+                ]}>
+                View All
+              </Text>
+            </TouchableOpacity>
+          </View>
+          {!loading && orders?.data.length <= 0 && (
+            <View>
+              <Text style={[tw('font-bold mb-2'), styles.subheader]}>
+                No Open Order
+              </Text>
+            </View>
+          )}
+          {orders?.data?.length > 0 && (
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}>
+              {orders?.data?.map((order, index) => {
+                if (index < 5) {
+                  return (
+                    <OpenOrderCard key={index} data={order} userData={user} />
+                  );
+                }
+              })}
+            </ScrollView>
+          )}
+        </View>
+
         <Modal
           isVisible={detailsModal}
           style={styles.modal}
@@ -490,6 +548,7 @@ const Dashboard = () => {
             </View>
           </LinearGradient>
         </Modal>
+        <View style={{height: 50}} />
       </ScrollView>
       {renderLoader()}
     </SafeAreaView>
