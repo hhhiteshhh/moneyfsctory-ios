@@ -85,7 +85,7 @@ const QuantCard = ({
               {' '}
               {formatter.format(price ? price : 0)}
             </Text>
-            <Icon />
+            {/* <Icon /> */}
           </View>
         </View>
       </View>

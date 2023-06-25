@@ -33,7 +33,11 @@ import card2 from '../../../assets/images/card2.svg';
 import card3 from '../../../assets/images/card3.svg';
 import card4 from '../../../assets/images/card4.svg';
 import {useNavigation} from '@react-navigation/native';
-
+import Explore from '../../../assets/images/exploreQuant.svg';
+import HowItWorks from '../../../assets/images/howItWorks.svg';
+import HowToInvest from '../../../assets/images/howToInvest.svg';
+import ArrowRightYellow from '../../../assets/icons/arrowRightYellow.svg';
+import Button from '../../../components/Button';
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
 
@@ -201,6 +205,187 @@ Happy Investing!`;
               action={navigateToProPlan}
             />
           </View>
+          <View
+            style={[
+              tw(
+                'mt-4 w-full flex flex-row items-center justify-between p-3 rounded-md ',
+              ),
+              {...styles.referCard, backgroundColor: Colors.bgcolor1},
+            ]}>
+            <Explore />
+            <View style={[tw('ml-2')]}>
+              <View style={{flexGrow: 1, width: 180, flexDirection: 'column'}}>
+                <Text
+                  style={[
+                    tw('font-bold'),
+                    {...styles.refer, color: Colors.white},
+                  ]}>
+                  Select a Plan that suits you.
+                </Text>
+                <Text
+                  style={[
+                    tw('mt-2'),
+                    {
+                      ...styles.card2Subtitle,
+                    },
+                  ]}>
+                  More than <Text style={{color: Colors.yellow}}>100+ </Text>
+                  Quants to invest with
+                </Text>
+              </View>
+
+              <TouchableOpacity
+                style={[tw('w-36')]}
+                onPress={() => {
+                  navigation.navigate('Discover');
+                }}>
+                <Button title="Explore Quants" />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View
+            style={[
+              tw(
+                'mt-4 w-full flex flex-row items-center justify-between p-3 rounded-md ',
+              ),
+              {...styles.referCard, backgroundColor: Colors.bgcolor1},
+            ]}>
+            <View style={[tw('flex')]}>
+              <View
+                style={{
+                  flexGrow: 1,
+                  width: 180,
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={[
+                    tw('font-bold'),
+                    {...styles.refer, color: Colors.white},
+                  ]}>
+                  Need help with investing?
+                </Text>
+                <TouchableOpacity
+                  style={[tw('mt-2 flex flex-row items-center justify-start')]}
+                  onPress={() => {
+                    alert('Coming soon!');
+                  }}>
+                  <Text
+                    style={[
+                      tw('mr-1'),
+                      {
+                        ...styles.card2Subtitle,
+                        color: Colors.yellow,
+                      },
+                    ]}>
+                    See how it works.
+                  </Text>
+                  <ArrowRightYellow />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={[tw('-ml-5'), {}]}>
+              <HowItWorks />
+            </View>
+          </View>
+          <View
+            style={[
+              tw(
+                'mt-4 w-full flex flex-row items-center justify-between p-3 rounded-md ',
+              ),
+              {...styles.referCard, backgroundColor: Colors.bgcolor1},
+            ]}>
+            <View style={[tw('flex')]}>
+              <View
+                style={{
+                  flexGrow: 1,
+                  width: 180,
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}>
+                <Text
+                  style={[
+                    tw('font-bold'),
+                    {...styles.refer, color: Colors.white},
+                  ]}>
+                  How to Invest with{' '}
+                  <Text style={{color: Colors.primary}}>Moneyfactory?</Text>
+                </Text>
+                <View>
+                  <View style={[tw('flex mt-1 flex-row items-center')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2'), {...styles.card2Subtitle}]}>
+                      Pick a Subscription
+                    </Text>
+                  </View>
+                  <View style={[tw('flex flex-row mt-2 items-start')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2 -mt-1'), {...styles.card2Subtitle}]}>
+                      Plan Link your Demat Account or Open a Free Account{' '}
+                    </Text>
+                  </View>
+                  <View style={[tw('flex mt-1 flex-row items-center')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2'), {...styles.card2Subtitle}]}>
+                      Deploy the Quant
+                    </Text>
+                  </View>
+                  <View style={[tw('flex mt-1 flex-row items-center')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2'), {...styles.card2Subtitle}]}>
+                      Get Notified with Investing
+                    </Text>
+                  </View>
+                  <View style={[tw('flex mt-1 flex-row items-center')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2'), {...styles.card2Subtitle}]}>
+                      Opportunity on the go
+                    </Text>
+                  </View>
+                  <View style={[tw('flex mt-2 flex-row items-start')]}>
+                    <View
+                      style={[
+                        tw('h-2 w-2 rounded-full'),
+                        {backgroundColor: Colors.primary},
+                      ]}
+                    />
+                    <Text style={[tw('ml-2 -mt-1'), {...styles.card2Subtitle}]}>
+                      Sit back & Relax, Build Wealth!{' '}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View style={[tw('-ml-5'), {}]}>
+              <HowToInvest />
+            </View>
+          </View>
+
           <View style={[tw('mt-4 w-full rounded-md py-3 '), styles.referCard]}>
             <View
               style={[
@@ -211,7 +396,6 @@ Happy Investing!`;
               <View style={[tw('')]}>
                 <View style={{flexGrow: 1, width: 180, flexDirection: 'row'}}>
                   <Text
-                    s
                     style={[
                       tw('font-bold flex flex-wrap'),
                       {
@@ -225,7 +409,6 @@ Happy Investing!`;
                 </View>
                 <View style={{flexGrow: 1, width: 220, flexDirection: 'row'}}>
                   <Text
-                    s
                     style={[
                       tw('mr-5'),
                       {

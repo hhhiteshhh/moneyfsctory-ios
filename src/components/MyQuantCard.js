@@ -266,7 +266,7 @@ const MyQuantCard = ({data}) => {
               <Close />
             </TouchableOpacity>
           </View>
-          <View
+          {/* <View
             style={[
               tw('flex flex-row items-center px-5 justify-between px-5 py-3'),
             ]}>
@@ -286,7 +286,7 @@ const MyQuantCard = ({data}) => {
               <Exit />
               <Text style={styles.iconText2}>Exit Selected</Text>
             </View>
-          </View>
+          </View> */}
           <View style={styles.hr} />
           <TouchableOpacity
             onPress={navigateToMyQuantDetails}

@@ -17,17 +17,16 @@ import Search from '../../../assets/icons/search.svg';
 import apis from '../../../consts/apis';
 import GetApi from '../../../hooks/GetApi';
 import MyStatusBar from '../../../components/MyStatusBar';
-import {useRecoilState, useRecoilValue} from 'recoil';
-import {quantsAtom} from '../../../atoms/quantsAtom';
 import Header from '../../../components/Header';
 import {useNavigation} from '@react-navigation/native';
-import {userDataAtom} from '../../../atoms/userDataAtom';
+import {quantsAtom} from '../../../atoms/quantsAtom';
+import {useRecoilState} from 'recoil';
+
 const windowHeight = Dimensions.get('window').height;
 
-const Discover = () => {
+const StarterPlan = () => {
   const navigation = useNavigation();
-  const user = useRecoilValue(userDataAtom);
-
+  let planName = 'Invest Daily';
   const tw = useTailwind();
   const renderItem = ({item}) => (
     <QuantCard
@@ -39,9 +38,7 @@ const Discover = () => {
       data={item}
     />
   );
-
   const [loading, setLoading] = useState(false);
-  const [quants, setQuants] = useRecoilState(quantsAtom);
   const renderLoader = () => {
     if (loading) {
       return (
@@ -51,34 +48,29 @@ const Discover = () => {
       );
     }
   };
-
   async function fetchQuants() {
-    if (quants.length > 0) {
-      setFilteredData(quants);
-    } else {
-      let temp = [];
-      setLoading(true);
-      let categories = await GetApi(apis.categories);
-      let quants = await GetApi(apis.quants);
-      categories.data.map((category, ind) => {
-        let tempQuant = [];
-        const groupCategories = (ele, id) => {
-          for (let i = 0; i < ele.categories.length; i++) {
-            if (ele.categories[i].categoryId._id === category._id) {
-              return true;
-            }
+    setLoading(true);
+    let temp = [];
+    let categories = await GetApi(apis.categories);
+    let quants = await GetApi(apis.quants);
+    categories.data.map((category, ind) => {
+      let tempQuant = [];
+      const groupCategories = (ele, id) => {
+        for (let i = 0; i < ele.categories.length; i++) {
+          if (ele.categories[i].categoryId._id === category._id) {
+            return true;
           }
-        };
-        quants.data.filter(groupCategories).map(quant => {
-          tempQuant.push(quant);
-        });
-        temp.push({bank: category.name, quants: tempQuant});
+        }
+      };
+      quants.data.filter(groupCategories).map(quant => {
+        tempQuant.push(quant);
       });
+      temp.push({bank: category.name, quants: tempQuant});
+    });
 
-      setFilteredData(temp);
-      setQuants(temp);
-      setLoading(false);
-    }
+    setQuants(temp);
+    setFilteredData(temp);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -86,7 +78,9 @@ const Discover = () => {
     } else {
       fetchQuants();
     }
-  }, [quants]);
+  }, []);
+
+  const [quants, setQuants] = useRecoilState(quantsAtom);
 
   const [filteredData, setFilteredData] = useState(quants);
   const handleSearch = searchTerm => {
@@ -102,10 +96,13 @@ const Discover = () => {
     setFilteredData(results);
   };
   return (
-    <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
+    <SafeAreaView style={[tw('h-full '), styles.container]}>
       <View style={[tw('h-full '), styles.container]}>
         <MyStatusBar padding={20} />
-        <Header title={`Hello ${user.name.split(' ')[0]}!`} back={false} />
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Starter Plan`} back={true} />
+        </View>
+
         <View style={[tw('px-5 mt-3 relative')]}>
           <TextInput
             placeholder="Search"
@@ -129,41 +126,49 @@ const Discover = () => {
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
           data={filteredData}
-          renderItem={({item}) => (
-            <View>
-              <View
-                style={[
-                  tw(
-                    'flex flex-row w-full items-center justify-between mt-3 mb-3',
-                  ),
-                ]}>
-                <Text style={[tw('font-bold'), styles.name]}>{item.bank}</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('SeeAll', {data: item});
-                  }}>
-                  <Text style={[tw('font-bold'), styles.seeAll]}>See All</Text>
-                </TouchableOpacity>
+          renderItem={({item}) =>
+            item.bank === planName && (
+              <View>
+                <View
+                  style={[
+                    tw(
+                      'flex flex-row w-full items-center justify-between mt-3 mb-3',
+                    ),
+                  ]}>
+                  <Text style={[tw('font-bold'), styles.name]}>
+                    {item.bank}
+                  </Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate('SeeAll', {data: item});
+                    }}>
+                    <Text style={[tw('font-bold'), styles.seeAll]}>
+                      See All
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+                <FlatList
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  showsVerticalScrollIndicator={false}
+                  data={item.quants}
+                  renderItem={renderItem}
+                  keyExtractor={item => item._id}
+                />
               </View>
-              <FlatList
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-                data={item.quants}
-                renderItem={renderItem}
-                keyExtractor={item => item._id}
-              />
-            </View>
-          )}
+            )
+          }
           keyExtractor={item => item.bank}
         />
+        {renderLoader()}
+
+        {/* <View style={{height: 100}} /> */}
       </View>
-      {renderLoader()}
     </SafeAreaView>
   );
 };
 
-export default Discover;
+export default StarterPlan;
 
 const styles = StyleSheet.create({
   containerLoader: {
@@ -175,6 +180,11 @@ const styles = StyleSheet.create({
     height: windowHeight,
     position: 'absolute',
     width: '100%',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
   },
   container: {
     backgroundColor: Colors.eerie,

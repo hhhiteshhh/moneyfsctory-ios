@@ -1,6 +1,13 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen';
+import Invest100 from './StarterPlanDescription';
+import StarterPlan from './StarterPlan';
+import QuantDetails from '../CommonScreens/QuantDetails';
+import MyQuantDetails from '../CommonScreens/MyQuantDetails';
+import ProPlan from './ProPlan';
+import GrowthPlan from './GrowthPlan';
+import SeeAll from '../Discover/SeeAll';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,6 +17,36 @@ const HomeScreenStack = () => {
       <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="StarterPlan"
+        component={StarterPlan}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="ProPlan"
+        component={ProPlan}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="GrowthPlan"
+        component={GrowthPlan}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="QuantDetails"
+        component={QuantDetails}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyQuantDetails"
+        component={MyQuantDetails}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SeeAll"
+        component={SeeAll}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

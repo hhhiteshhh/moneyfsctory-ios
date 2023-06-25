@@ -20,6 +20,9 @@ import SubscribedPlan from './CommonScreens/ProfileStack/SubscribedPlan';
 import MyQuants from './CommonScreens/MyQuants';
 import MyQuantDetails from './CommonScreens/MyQuantDetails';
 import QuantDetails from './CommonScreens/QuantDetails';
+import StarterPlanDescription from './HomeScreen/StarterPlanDescription';
+import GrowthPlanDescription from './HomeScreen/GrowthPlanDescription';
+import ProPlanDescription from './HomeScreen/ProPlanDescription';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -108,61 +111,80 @@ const BottomTab = ({Icon, isFocused, data}) => {
 const Login = () => {
   return (
     <Stack.Navigator initialRouteName={'BottomTabs'}>
-      <Stack.Screen
-        name="BottomTabs"
-        component={TabNavigator}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MyProfile"
-        component={MyProfile}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Refer"
-        component={Refer}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="ChangePassword"
-        component={ChangePassword}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MyInvoices"
-        component={MyInvoices}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MyOrders"
-        component={MyOrders}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="SubscribedPlan"
-        component={SubscribedPlan}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MyQuants"
-        component={MyQuants}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="MyQuantDetails"
-        component={MyQuantDetails}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="QuantDetails"
-        component={QuantDetails}
-        options={{headerShown: false}}
-      />
+      <Stack.Group>
+        <Stack.Screen
+          name="BottomTabs"
+          component={TabNavigator}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyProfile"
+          component={MyProfile}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Refer"
+          component={Refer}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ChangePassword"
+          component={ChangePassword}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyInvoices"
+          component={MyInvoices}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyOrders"
+          component={MyOrders}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SubscribedPlan"
+          component={SubscribedPlan}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyQuants"
+          component={MyQuants}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MyQuantDetails"
+          component={MyQuantDetails}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="QuantDetails"
+          component={QuantDetails}
+          options={{headerShown: false}}
+        />
+      </Stack.Group>
+      <Stack.Group screenOptions={{presentation: 'modal'}}>
+        <Stack.Screen
+          name="Invest100"
+          component={StarterPlanDescription}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="GrowthPlanDescription"
+          component={GrowthPlanDescription}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ProPlanDescription"
+          component={ProPlanDescription}
+          options={{headerShown: false}}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };

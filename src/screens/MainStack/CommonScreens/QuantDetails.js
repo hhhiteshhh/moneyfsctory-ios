@@ -318,7 +318,7 @@ const QuantDetails = ({route, orders}) => {
               </View>
             </View>
           </LinearGradient>
-          <View
+          {/* <View
             style={[
               tw('flex flex-row items-center justify-between px-5 py-3'),
               styles.card,
@@ -339,7 +339,7 @@ const QuantDetails = ({route, orders}) => {
               <Dislike />
               <Text style={styles.iconText}>Dislike</Text>
             </View>
-          </View>
+          </View> */}
           <View
             style={[
               tw('flex items-center w-full justify-between flex-row px-5 mt-2'),
