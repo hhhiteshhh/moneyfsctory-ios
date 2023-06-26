@@ -11,12 +11,12 @@ import {
 import React, {useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../../assets/colors';
-import BackIcon from '../../../../assets/icons/back.svg';
 import Button from '../../../../components/Button';
 import MyStatusBar from '../../../../components/MyStatusBar';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import Header from '../../../../components/Header';
 
 const MyProfile = ({}) => {
   const tw = useTailwind();
@@ -38,22 +38,16 @@ const MyProfile = ({}) => {
 
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
-      <View style={[tw('h-full w-full px-5')]}>
-        <MyStatusBar padding={0} />
-        <View
-          style={[tw('flex  flex-row items-center justify-between my-3'), {}]}>
-          <View style={[tw('flex flex-row items-center flex-1')]}>
-            <TouchableOpacity onPress={goBack}>
-              <BackIcon />
-            </TouchableOpacity>
-            <Text style={[tw('font-bold ml-3'), styles.header]}>
-              Personal Information
-            </Text>
-          </View>
+      <View style={[tw('h-full w-full')]}>
+        <MyStatusBar padding={20} />
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Personal Information`} back={true} />
         </View>
+
         <ScrollView
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={[tw('px-5')]}>
           <View
             style={[tw('relative flex items-center justify-center mt-8 mb-5')]}>
             <Image

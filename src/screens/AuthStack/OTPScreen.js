@@ -20,12 +20,14 @@ import MyStatusBar from '../../components/MyStatusBar';
 import REGEX from '../../consts/regularExpression';
 import apis from '../../consts/apis';
 import PostApi from '../../hooks/PostApi';
+import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function OTPScreen({navigation, route}) {
+export default function OTPScreen({route}) {
   const tw = useTailwind();
+  const navigation = useNavigation();
   const params = route.params;
   const [otp, setOtp] = useState('');
   const [loading, setLoading] = useState(false);

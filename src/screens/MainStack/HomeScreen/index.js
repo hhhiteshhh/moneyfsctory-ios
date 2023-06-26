@@ -8,6 +8,11 @@ import MyQuantDetails from '../CommonScreens/MyQuantDetails';
 import ProPlan from './ProPlan';
 import GrowthPlan from './GrowthPlan';
 import SeeAll from '../Discover/SeeAll';
+import VirtualPortFolio from './VirtualPortFolio';
+import VirtualQuants from './VirtualQuants';
+import VirtualQuantDetail from './VirtualQuantDetail';
+import DeployVirtualQuant from './DeployVirtualQuant';
+import Congratulations from './Congratulations';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +47,31 @@ const HomeScreenStack = () => {
       <Stack.Screen
         name="MyQuantDetails"
         component={MyQuantDetails}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="VirtualPortFolio"
+        component={VirtualPortFolio}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="VirtualQuants"
+        component={VirtualQuants}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="VirtualQuantDetail"
+        component={VirtualQuantDetail}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DeployVirtualQuant"
+        component={DeployVirtualQuant}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Congratulations"
+        component={Congratulations}
         options={{headerShown: false}}
       />
       <Stack.Screen

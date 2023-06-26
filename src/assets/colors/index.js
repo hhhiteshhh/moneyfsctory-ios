@@ -17,6 +17,7 @@ export const Colors = {
   card2: '#204348',
   lightBlack: '#1D1D1D',
   primary3: '#1E383C',
+  primary4: '#278396',
   text: '#6C6C6C',
   text2: '#a5b8b9',
   red: '#c5283d',

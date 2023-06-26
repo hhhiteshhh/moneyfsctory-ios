@@ -78,7 +78,6 @@ const SeeAll = ({route}) => {
                     name={item.name}
                     Image={item.imgUrl}
                     severity={item.risk}
-                    navigation={navigation}
                     data={item}
                   />
                 </View>

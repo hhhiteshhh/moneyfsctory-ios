@@ -2,7 +2,6 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
   ScrollView,
   Dimensions,
   ActivityIndicator,
@@ -11,11 +10,8 @@ import {
 import React, {useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../../assets/colors';
-import BackIcon from '../../../../assets/icons/back.svg';
-import SortIcon from '../../../../assets/icons/sort.svg';
 import InvoiceCard from '../../../../components/InvoiceCard';
 import MyStatusBar from '../../../../components/MyStatusBar';
-import {useNavigation} from '@react-navigation/native';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
 import GetApi from '../../../../hooks/GetApi';
@@ -24,12 +20,8 @@ import apis from '../../../../consts/apis';
 const windowHeight = Dimensions.get('window').height;
 
 const MyInvoices = () => {
-  const navigation = useNavigation();
   const user = useRecoilValue(userDataAtom);
   const tw = useTailwind();
-  const goBack = () => {
-    navigation.goBack();
-  };
 
   const [loading, setLoading] = useState(false);
   const renderLoader = () => {
@@ -59,22 +51,15 @@ const MyInvoices = () => {
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
       <View style={[tw('h-full px-5'), styles.container]}>
-        <MyStatusBar padding={0} />
-        <View
-          style={[tw('flex  flex-row items-center justify-between my-3'), {}]}>
-          <View style={[tw('flex flex-row items-center flex-1')]}>
-            <TouchableOpacity onPress={goBack}>
-              <BackIcon />
-            </TouchableOpacity>
-            <Text style={[tw('font-bold ml-3'), styles.header]}>
-              My Invoices
-            </Text>
-          </View>
-          <SortIcon />
+        <MyStatusBar padding={20} />
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`My Invoices`} back={true} />
         </View>
+
         <ScrollView
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={[tw('px-5')]}>
           <Text style={[tw('font-medium mt-3'), styles.subheader]}>
             Payment Settings
           </Text>

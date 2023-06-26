@@ -88,7 +88,7 @@ const ChangePassword = () => {
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
       <View style={[tw('h-full px-5'), styles.container]}>
-        <MyStatusBar padding={0} />
+        <MyStatusBar padding={20} />
         <View
           style={[tw('flex  flex-row items-center justify-between my-3'), {}]}>
           <View style={[tw('flex flex-row items-center flex-1')]}>

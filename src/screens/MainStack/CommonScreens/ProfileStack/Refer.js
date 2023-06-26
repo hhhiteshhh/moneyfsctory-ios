@@ -13,7 +13,6 @@ import {
 import React, {useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../../assets/colors';
-import BackIcon from '../../../../assets/icons/back.svg';
 import ReferImage from '../../../../assets/images/refer.svg';
 import CashCard from '../../../../assets/images/cashCard.svg';
 import ShareImage from '../../../../assets/icons/share.svg';
@@ -23,21 +22,17 @@ import LinearGradient from 'react-native-linear-gradient';
 import MyStatusBar from '../../../../components/MyStatusBar';
 import apis from '../../../../consts/apis';
 import PostApi from '../../../../hooks/PostApi';
-import {useNavigation} from '@react-navigation/native';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
 import Clipboard from '@react-native-clipboard/clipboard';
+import Header from '../../../../components/Header';
 
 const windowHeight = Dimensions.get('window').height;
 
 const Refer = () => {
   const tw = useTailwind();
-  const navigation = useNavigation();
   const user = useRecoilValue(userDataAtom);
 
-  const goBack = () => {
-    navigation.goBack();
-  };
   const [cash, setCash] = useState({});
   const message = `
 Greetings Investor! 
@@ -105,22 +100,15 @@ Happy Investing!`;
   }
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
-      <View style={[tw('h-full px-5')]}>
-        <MyStatusBar padding={0} />
-        <View
-          style={[tw('flex  flex-row items-center justify-between my-3'), {}]}>
-          <View style={[tw('flex flex-row items-center flex-1')]}>
-            <TouchableOpacity onPress={goBack}>
-              <BackIcon />
-            </TouchableOpacity>
-            <Text style={[tw('font-bold ml-3'), styles.header]}>
-              Refer Friends
-            </Text>
-          </View>
+      <View style={[tw('h-full')]}>
+        <MyStatusBar padding={20} />
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Refer Friends`} back={true} />
         </View>
         <ScrollView
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={[tw('px-5')]}>
           {cash.availableBalance === 0 ? (
             <View style={[tw('relative')]}>
               <CashCard />

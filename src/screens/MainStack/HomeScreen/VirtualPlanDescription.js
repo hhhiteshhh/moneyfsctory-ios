@@ -11,31 +11,38 @@ import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../assets/colors';
 import BackIcon from '../../../assets/icons/back.svg';
 import Button from '../../../components/Button';
-import Image1 from '../../../assets/images/1.svg';
-import Image2 from '../../../assets/images/2.svg';
+import Image1 from '../../../assets/images/5.svg';
+import Image2 from '../../../assets/images/6.svg';
 import Image3 from '../../../assets/images/3.svg';
-import Image4 from '../../../assets/images/4.svg';
+import Image4 from '../../../assets/images/7.svg';
 import MyStatusBar from '../../../components/MyStatusBar';
 import {useNavigation} from '@react-navigation/native';
-import Header from '../../../components/Header';
-const ProPlanDescription = () => {
+
+const VirtualInvestor = () => {
   const tw = useTailwind();
   const navigation = useNavigation();
 
-  const navigateToDiscover = () => {
-    navigation.navigate('Home', {screen: 'ProPlan'});
+  const goBack = () => {
+    navigation.goBack();
+  };
+
+  const navigateToVirtualPortFolio = () => {
+    // navigation.navigate('VirtualPortFolio');
+    navigation.navigate('Home', {screen: 'VirtualPortFolio'});
   };
 
   return (
     <SafeAreaView style={[tw('h-full w-full relative'), styles.container]}>
-      <View style={[tw('h-full relative'), styles.container]}>
+      <View style={[tw('h-full px-5 relative'), styles.container]}>
         <MyStatusBar padding={0} />
-        <View style={[tw('mb-3'), {}]}>
-          <Header title={`Pro Plan`} back={true} />
+        <View style={[tw('mt-3 flex flex-row items-center')]}>
+          <TouchableOpacity onPress={goBack}>
+            <BackIcon />
+          </TouchableOpacity>
+          <Text style={[tw('font-bold'), styles.header]}>Virtual Investor</Text>
         </View>
-
         <ScrollView
-          style={[tw('mt-5 px-5')]}
+          style={[tw('mt-5')]}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}>
           <Text
@@ -50,11 +57,8 @@ const ProPlanDescription = () => {
               tw('text-center mt-2'),
               {fontSize: 14, lineHeight: 24, color: Colors.white},
             ]}>
-            Investing isn't just for big budgets. With our Starter Plan you can
-            start with as little as Rs 100 per day.{'\n'}
-            {'\n'}
-            Put your money in high-performing quants and safely switch from one
-            to the other with the least possible risk.
+            Become an investing pro before you even put in a single rupee with
+            our Virtual Investor mode.
           </Text>
           <View style={[tw('items-center justify-center mt-5')]}>
             <Image1 />
@@ -64,15 +68,15 @@ const ProPlanDescription = () => {
               tw('text-center px-5 mt-5 font-bold'),
               {fontSize: 16, lineHeight: 24, color: Colors.yellow},
             ]}>
-            Link your brokerage account
+            Select your portfolio value
           </Text>
           <Text
             style={[
               tw('text-center  px-7 font-medium'),
               {fontSize: 16, lineHeight: 24, color: Colors.white},
             ]}>
-            MoneyFactory doesn't own or keep any of your money, we just help
-            facilitate the right transactions.
+            How much would you like to invest based on your goals, risk
+            appetite, and current capacity.
           </Text>
 
           <View style={[tw('items-center justify-center mt-5')]}>
@@ -83,15 +87,15 @@ const ProPlanDescription = () => {
               tw('text-center px-5 mt-5 font-bold'),
               {fontSize: 16, lineHeight: 24, color: Colors.yellow},
             ]}>
-            Subscribe to a quant
+            Choose your quant
           </Text>
           <Text
             style={[
               tw('text-center  px-7 font-medium'),
               {fontSize: 16, lineHeight: 24, color: Colors.white},
             ]}>
-            Select a quant based on your investing preferences and subscribe to
-            it.
+            A quant is a portfolio of high-performing stocks, chosen by our
+            AI-powered algorithm.
           </Text>
 
           <View style={[tw('items-center justify-center mt-5')]}>
@@ -109,8 +113,8 @@ const ProPlanDescription = () => {
               tw('text-center  px-7 font-medium'),
               {fontSize: 16, lineHeight: 24, color: Colors.white},
             ]}>
-            Choose a stock from the quant and then add your first Rs 100 to
-            subscribe.
+            Choose a stock from the quant and deploy your a set virtual amount
+            you would like to invest in it.
           </Text>
 
           <View style={[tw('items-center justify-center mt-5')]}>
@@ -121,22 +125,22 @@ const ProPlanDescription = () => {
               tw('text-center px-5 mt-5 font-bold'),
               {fontSize: 16, lineHeight: 24, color: Colors.yellow},
             ]}>
-            Watch your money grow
+            Get updates and alerts
           </Text>
           <Text
             style={[
               tw('text-center  px-7 font-medium'),
               {fontSize: 16, lineHeight: 24, color: Colors.white},
             ]}>
-            Let MoneyFactory send you regular updates on when to buy and sell
-            your stocks.
+            Once deployed MoneyFactory will share alerts on price drops and
+            increases, prompting you to sell/buy at just the right time.
           </Text>
           <View style={{height: 100}} />
         </ScrollView>
         <TouchableOpacity
           // activeOpacity={1}
           style={[tw('mt-3 text-center absolute w-full bottom-0 left-5 z-50')]}
-          onPress={navigateToDiscover}>
+          onPress={navigateToVirtualPortFolio}>
           <Button title="Get Started" />
         </TouchableOpacity>
       </View>
@@ -144,7 +148,7 @@ const ProPlanDescription = () => {
   );
 };
 
-export default ProPlanDescription;
+export default VirtualInvestor;
 
 const styles = StyleSheet.create({
   container: {

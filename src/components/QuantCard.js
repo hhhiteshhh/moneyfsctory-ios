@@ -13,17 +13,11 @@ import {SvgUri} from 'react-native-svg';
 import {MONEY_FACTORY_IMAGE} from '../consts/apis';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
+import {useNavigation} from '@react-navigation/native';
 
-const QuantCard = ({
-  price,
-  name,
-  Image,
-  severity,
-  navigation,
-  bank = '',
-  data,
-}) => {
+const QuantCard = ({price, name, Image, severity, bank = '', data}) => {
   const tw = useTailwind();
+  const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
   const onError = e => {
     setLoading(false);

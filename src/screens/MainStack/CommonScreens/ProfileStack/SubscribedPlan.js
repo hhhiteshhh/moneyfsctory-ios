@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
-import BackIcon from '../../../../assets/icons/back.svg';
 import Performance from '../../../../assets/icons/performance.svg';
 import {Colors} from '../../../../assets/colors';
 import PlanCard from '../../../../components/PlanCard';
@@ -19,18 +18,14 @@ import RazorpayCheckout from 'react-native-razorpay';
 import PostApi from '../../../../hooks/PostApi';
 import apis from '../../../../consts/apis';
 import MyStatusBar from '../../../../components/MyStatusBar';
-import {useNavigation} from '@react-navigation/native';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
 
 const windowHeight = Dimensions.get('window').height;
 const SubscribedPlan = () => {
   const tw = useTailwind();
-  const navigation = useNavigation();
   const user = useRecoilValue(userDataAtom);
-  const goBack = () => {
-    navigation.goBack();
-  };
+
   const pricingMonthly = [
     {
       id: 1,
@@ -230,20 +225,14 @@ const SubscribedPlan = () => {
 
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
-      <View style={[tw('h-full px-5'), styles.container]}>
-        <MyStatusBar padding={0} />
-        <View
-          style={[tw('flex  flex-row items-center justify-between my-3'), {}]}>
-          <View style={[tw('flex flex-row items-center flex-1')]}>
-            <TouchableOpacity onPress={goBack}>
-              <BackIcon />
-            </TouchableOpacity>
-            <Text style={[tw('font-bold ml-3'), styles.header]}>
-              Subsciption Plans
-            </Text>
-          </View>
+      <View style={[tw('h-full'), styles.container]}>
+        <MyStatusBar padding={20} />
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Subscription Plans`} back={true} />
         </View>
-        <View style={[tw('flex flex-row items-center justify-between mt-6')]}>
+
+        <View
+          style={[tw('flex flex-row items-center justify-between mt-6 px-5')]}>
           <TouchableOpacity
             style={[
               tw('w-1/3'),
@@ -322,7 +311,8 @@ const SubscribedPlan = () => {
         </View>
         <ScrollView
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={[tw('px-5')]}>
           <TouchableOpacity
             onPress={() => {
               setId(pricing[0].id);

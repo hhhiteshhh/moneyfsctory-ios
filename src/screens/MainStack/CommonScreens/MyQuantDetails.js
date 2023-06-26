@@ -9,8 +9,6 @@ import {
 import React, {useState} from 'react';
 import {useTailwind} from 'tailwind-rn';
 import {Colors} from '../../../assets/colors';
-import BackIcon from '../../../assets/icons/back.svg';
-import Filter from '../../../assets/icons/filter.svg';
 import NoImage from '../../../assets/icons/image2vector.svg';
 import More from '../../../assets/icons/moreVertYellow.svg';
 import Deploy from '../../../assets/icons/deployedBlue.svg';
@@ -29,20 +27,13 @@ import AngleBroking from '../../../assets/icons/_angleBroking.svg';
 import Fyres from '../../../assets/icons/_fyres.svg';
 import Paisa from '../../../assets/icons/paisa.svg';
 import MyStatusBar from '../../../components/MyStatusBar';
-import {useNavigation} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Header from '../../../components/Header';
 
 const MyQuantDetails = ({route}) => {
   const tw = useTailwind();
-  const navigation = useNavigation();
-
-  const goBack = () => {
-    navigation.goBack();
-  };
   const data = route?.params?.data;
   const [open, setOpen] = useState([]);
-  const card = ['RELIANCE', 'TATA', 'ICICI'];
   let LogoTemp = ['', Paisa, AngleBroking, Fyres, '', '', BrokerLogo];
   let BrokerName = [
     '',

@@ -11,7 +11,6 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Colors} from '../../../assets/colors';
 import {useTailwind} from 'tailwind-rn';
-import BackIcon from '../../../assets/icons/back.svg';
 import Share from '../../../assets/images/share.svg';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
@@ -28,14 +27,13 @@ import SmallcaseGateway from 'react-native-smallcase-gateway';
 import PostApi from '../../../hooks/PostApi';
 import Zeus from '../../../assets/images/zeus.svg';
 import MyStatusBar from '../../../components/MyStatusBar';
-import {useNavigation} from '@react-navigation/native';
 import {userDataAtom} from '../../../atoms/userDataAtom';
 import {useRecoilValue} from 'recoil';
+import Header from '../../../components/Header';
 
 const windowHeight = Dimensions.get('window').height;
 const Notifications = () => {
   const user = useRecoilValue(userDataAtom);
-  const navigation = useNavigation();
   let LogoTemp = ['', Paisa, AngleBroking, Fyres, '', '', BrokerLogo];
   let BrokerName = [
     '',
@@ -48,16 +46,7 @@ const Notifications = () => {
   ];
 
   const tw = useTailwind();
-  const goBack = () => {
-    navigation.goBack();
-  };
   const [orders, setOrders] = useState([]);
-  const onError = e => {
-    setLoading(false);
-  };
-  const onLoad = () => {
-    setLoading(false);
-  };
   var formatter = new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency: 'INR',
@@ -237,25 +226,15 @@ const Notifications = () => {
   };
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
-      <View style={[tw('h-full px-5'), styles.container]}>
+      <View style={[tw('h-full'), styles.container]}>
         <MyStatusBar padding={0} />
-        <View
-          style={[
-            tw('flex flex-row items-center justify-between mt-3 mb-2'),
-            {},
-          ]}>
-          <View style={[tw('flex flex-row items-center flex-1')]}>
-            <TouchableOpacity onPress={goBack}>
-              <BackIcon />
-            </TouchableOpacity>
-            <Text style={[tw('font-bold ml-3'), styles.header]}>
-              Open Orders{' '}
-            </Text>
-          </View>
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Open Orders`} back={true} />
         </View>
         <ScrollView
           showsHorizontalScrollIndicator={false}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={[tw('px-5')]}>
           {orders?.data?.map((order, idx) => {
             let LogoBroker = LogoTemp[order?.brokerId]
               ? LogoTemp[order?.brokerId]
@@ -287,20 +266,6 @@ const Notifications = () => {
                       <View
                         style={[tw('h-16 w-16 items-center justify-center')]}>
                         <Zeus />
-                        {/* <SvgUri
-                        width="100%"
-                        height="100%"
-                        uri={`${MONEY_FACTORY_IMAGE}/${quantDetails?.[idx]?.image}`}
-                        onError={onError}
-                        onLoad={onLoad}
-                      />
-
-                      {loading && (
-                        <ActivityIndicator
-                          size="large"
-                          color={Colors.primary}
-                        />
-                      )} */}
                       </View>
                       <View
                         style={[
@@ -452,7 +417,6 @@ const Notifications = () => {
                     <TouchableOpacity
                       style={{width: '48%'}}
                       onPress={() => {
-                        // goBack();
                         failorder(order, 'user skipped the call');
                       }}>
                       <View

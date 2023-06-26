@@ -17,30 +17,23 @@ import Image3 from '../../../assets/images/3.svg';
 import Image4 from '../../../assets/images/4.svg';
 import MyStatusBar from '../../../components/MyStatusBar';
 import {useNavigation} from '@react-navigation/native';
+import Header from '../../../components/Header';
 const GrowthPlanDescription = () => {
   const tw = useTailwind();
   const navigation = useNavigation();
-
-  const goBack = () => {
-    navigation.goBack();
-  };
   const navigateToDiscover = () => {
-    // navigation.navigate('GrowthPlan');
     navigation.navigate('Home', {screen: 'GrowthPlan'});
   };
 
   return (
     <SafeAreaView style={[tw('h-full w-full relative'), styles.container]}>
-      <View style={[tw('h-full px-5 relative'), styles.container]}>
+      <View style={[tw('h-full relative'), styles.container]}>
         <MyStatusBar padding={0} />
-        <View style={[tw('mt-3 flex flex-row items-center')]}>
-          <TouchableOpacity onPress={goBack}>
-            <BackIcon />
-          </TouchableOpacity>
-          <Text style={[tw('font-bold'), styles.header]}>Growth Plan</Text>
+        <View style={[tw('mb-3'), {}]}>
+          <Header title={`Growth Plan`} back={true} />
         </View>
         <ScrollView
-          style={[tw('mt-5')]}
+          style={[tw('mt-5 px-5')]}
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}>
           <Text

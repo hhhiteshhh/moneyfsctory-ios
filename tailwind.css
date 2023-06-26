@@ -90,6 +90,10 @@
   top: 16px
 }
 
+.top-1 {
+  top: 0.25rem
+}
+
 .z-50 {
   z-index: 50
 }
@@ -137,6 +141,16 @@
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem
+}
+
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem
 }
 
 .-ml-2 {
@@ -269,6 +283,22 @@
 
 .-ml-4 {
   margin-left: -1rem
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem
+}
+
+.mt-10 {
+  margin-top: 2.5rem
+}
+
+.mt-12 {
+  margin-top: 3rem
+}
+
+.mt-16 {
+  margin-top: 4rem
 }
 
 .flex {
@@ -431,6 +461,22 @@
   width: 0.5rem
 }
 
+.w-\[85\%\] {
+  width: 85%
+}
+
+.w-\[60\%\] {
+  width: 60%
+}
+
+.w-\[80\%\] {
+  width: 80%
+}
+
+.w-\[75\%\] {
+  width: 75%
+}
+
 .flex-1 {
   flex: 1 1 0%
 }
@@ -590,6 +636,11 @@
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem
 }
 
 .pb-1 {

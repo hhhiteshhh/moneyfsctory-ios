@@ -23,6 +23,7 @@ import QuantDetails from './CommonScreens/QuantDetails';
 import StarterPlanDescription from './HomeScreen/StarterPlanDescription';
 import GrowthPlanDescription from './HomeScreen/GrowthPlanDescription';
 import ProPlanDescription from './HomeScreen/ProPlanDescription';
+import VirtualInvestor from './HomeScreen/VirtualPlanDescription';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -57,6 +58,10 @@ const MyTabBar = ({state, descriptors, navigation}) => {
           });
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name);
+              navigation.reset({
+                index: 0,
+                routes: [{name: route.name}],
+              });
           }
         };
 
@@ -66,6 +71,13 @@ const MyTabBar = ({state, descriptors, navigation}) => {
           <TouchableOpacity
             key={index}
             onPress={onPress}
+            // onPress={() => {
+            //   navigation.navigate(route.name);
+            //   navigation.reset({
+            //     index: 0,
+            //     routes: [{name: route.name}],
+            //   });
+            // }}
             testID={options.tabBarTestID}
             accessibilityRole="button">
             <BottomTab
@@ -182,6 +194,11 @@ const Login = () => {
         <Stack.Screen
           name="ProPlanDescription"
           component={ProPlanDescription}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="VirtualInvestor"
+          component={VirtualInvestor}
           options={{headerShown: false}}
         />
       </Stack.Group>

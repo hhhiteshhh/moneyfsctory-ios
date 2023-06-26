@@ -19,11 +19,14 @@ import PasswordHide from '../../assets/icons/password_hide.svg';
 import MyStatusBar from '../../components/MyStatusBar';
 import apis from '../../consts/apis';
 import PutApi from '../../hooks/PutApi';
+import {useNavigation} from '@react-navigation/native';
 
 const windowHeight = Dimensions.get('window').height;
 
-const ResetPassword = ({navigation, route}) => {
+const ResetPassword = ({route}) => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigation();
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
