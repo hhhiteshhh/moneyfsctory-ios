@@ -144,7 +144,7 @@ export default function OTPScreenFP({ route}) {
               onPress={() => {
                 handleOTP();
               }}
-              disabled={otp.length !== 6 || OTPError}>
+              disabled={otp?.length !== 6 || OTPError}>
               <Button title="Submit" />
             </TouchableOpacity>
             <View

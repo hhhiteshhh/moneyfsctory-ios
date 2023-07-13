@@ -20,6 +20,7 @@ import apis from '../../../../consts/apis';
 import MyStatusBar from '../../../../components/MyStatusBar';
 import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
+import Header from '../../../../components/Header';
 
 const windowHeight = Dimensions.get('window').height;
 const SubscribedPlan = () => {
@@ -326,6 +327,7 @@ const SubscribedPlan = () => {
               color={pricing[0].color}
               exchange={pricing[0].exchange}
               index={id}
+              description={['Real-time Buy Signals', 'DIY Portfolio Builder']}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -341,6 +343,11 @@ const SubscribedPlan = () => {
               color={pricing[1].color}
               exchange={pricing[1].exchange}
               index={id}
+              description={[
+                'Real-time Buy/Sell Signals',
+                'Curated Quants',
+                'Integrated Wealth Builder',
+              ]}
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -356,9 +363,14 @@ const SubscribedPlan = () => {
               color={pricing[2].color}
               exchange={pricing[2].exchange}
               index={id}
+              description={[
+                'Real-time F&O Signals',
+                'Flagship Quants',
+                'Integrated Income Builder',
+              ]}
             />
           </TouchableOpacity>
-          <Text style={[tw('font-bold my-3'), styles.subheader]}>
+          {/* <Text style={[tw('font-bold my-3'), styles.subheader]}>
             Performance Fees
           </Text>
           <ScrollView
@@ -422,7 +434,7 @@ const SubscribedPlan = () => {
                 10%
               </Text>
             </View>
-          </ScrollView>
+          </ScrollView> */}
           <TouchableOpacity
             disabled={!id}
             onPress={() => {

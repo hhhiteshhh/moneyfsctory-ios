@@ -46,7 +46,7 @@ const ResetPassword = ({route}) => {
       setLoading(false);
       alert('Confirm Password does not match with the given password');
       return;
-    } else if (password.length < 6) {
+    } else if (password?.length < 6) {
       setLoading(false);
       alert('Password must be more than 6 characters');
       return;

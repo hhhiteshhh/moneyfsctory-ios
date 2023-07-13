@@ -16,6 +16,7 @@ import {useRecoilValue} from 'recoil';
 import {userDataAtom} from '../../../../atoms/userDataAtom';
 import GetApi from '../../../../hooks/GetApi';
 import apis from '../../../../consts/apis';
+import Header from '../../../../components/Header';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -50,7 +51,7 @@ const MyInvoices = () => {
 
   return (
     <SafeAreaView style={[tw('h-full w-full'), styles.container]}>
-      <View style={[tw('h-full px-5'), styles.container]}>
+      <View style={[tw('h-full'), styles.container]}>
         <MyStatusBar padding={20} />
         <View style={[tw('mb-3'), {}]}>
           <Header title={`My Invoices`} back={true} />

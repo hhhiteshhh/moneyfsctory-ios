@@ -31,7 +31,7 @@ const SeeAll = ({route}) => {
       const matchingQuants = obj.quants.filter(q =>
         q.name.toString().toLowerCase().includes(searchTerm.toLowerCase()),
       );
-      if (matchingQuants.length > 0) {
+      if (matchingQuants?.length > 0) {
         acc.push({bank: obj.bank, quants: matchingQuants});
       }
       return acc;

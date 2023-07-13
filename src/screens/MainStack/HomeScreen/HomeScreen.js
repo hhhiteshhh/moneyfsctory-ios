@@ -157,11 +157,11 @@ Happy Investing!`;
     setLoading(false);
   }
   useEffect(() => {
-    if (testimonials.length > 0) {
+    if (testimonials?.length > 0) {
     } else {
       fetchTestimonials();
     }
-    if (videos.length > 0) {
+    if (videos?.length > 0) {
     } else {
       fetchVideos();
     }
@@ -474,7 +474,7 @@ Happy Investing!`;
             horizontal
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}>
-            {loading && videos.length <= 0 && (
+            {loading && videos?.length <= 0 && (
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
                 <View
                   style={[
@@ -527,7 +527,7 @@ Happy Investing!`;
             horizontal
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}>
-            {loading && testimonials.length <= 0 && (
+            {loading && testimonials?.length <= 0 && (
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
                 <View
                   style={[

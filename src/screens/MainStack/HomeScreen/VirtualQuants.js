@@ -69,7 +69,7 @@ const VirtualQuants = () => {
     categories.data.map((category, ind) => {
       let tempQuant = [];
       const groupCategories = (ele, id) => {
-        for (let i = 0; i < ele.categories.length; i++) {
+        for (let i = 0; i < ele.categories?.length; i++) {
           if (ele.categories[i].categoryId._id === category._id) {
             return true;
           }
@@ -85,7 +85,7 @@ const VirtualQuants = () => {
   }
 
   useEffect(() => {
-    if (mockData.length > 0) {
+    if (mockData?.length > 0) {
     } else {
       fetchQuants();
     }

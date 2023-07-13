@@ -47,7 +47,7 @@ const GrowthPlan = () => {
     categories.data.map((category, ind) => {
       let tempQuant = [];
       const groupCategories = (ele, id) => {
-        for (let i = 0; i < ele.categories.length; i++) {
+        for (let i = 0; i < ele.categories?.length; i++) {
           if (ele.categories[i].categoryId._id === category._id) {
             return true;
           }
@@ -65,7 +65,7 @@ const GrowthPlan = () => {
   }
 
   useEffect(() => {
-    if (quants.length > 0) {
+    if (quants?.length > 0) {
     } else {
       fetchQuants();
     }
@@ -79,7 +79,7 @@ const GrowthPlan = () => {
       const matchingQuants = obj.quants.filter(q =>
         q.name.toString().toLowerCase().includes(searchTerm.toLowerCase()),
       );
-      if (matchingQuants.length > 0) {
+      if (matchingQuants?.length > 0) {
         acc.push({bank: obj.bank, quants: matchingQuants});
       }
       return acc;

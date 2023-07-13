@@ -56,7 +56,7 @@ const ChangePassword = () => {
       alert('Confirm Password does not match with the given password');
       setLoading(false);
       return;
-    } else if (newPassword.length < 6) {
+    } else if (newPassword?.length < 6) {
       alert('Password must be more than 6 characters');
       setLoading(false);
       return;

@@ -136,7 +136,7 @@ const Dashboard = () => {
     fetchMyQuants();
     fetchHoldings();
     fetchorders();
-    if (trendingQuants.length > 0) {
+    if (trendingQuants?.length > 0) {
     } else {
       fetchTrendingQuants();
     }
@@ -265,7 +265,7 @@ const Dashboard = () => {
           </TouchableOpacity>
         </View>
 
-        {loading && quants.length <= 0 && (
+        {loading && quants?.length <= 0 && (
           <SkeletonPlaceholder.Item flexDirection="column" alignItems="center">
             <View style={[tw('flex px-5 w-full')]}>
               <View
@@ -312,7 +312,7 @@ const Dashboard = () => {
             setDetailsModal={setDetailsModal}
           />
         ))}
-        {!loading && quants.length <= 0 && (
+        {!loading && quants?.length <= 0 && (
           <View>
             <Text style={[tw('font-bold mb-2'), styles.subheader]}>
               No Active Quant
@@ -330,7 +330,7 @@ const Dashboard = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
             showsVerticalScrollIndicator={false}>
-            {loading && trendingQuants.length <= 0 && (
+            {loading && trendingQuants?.length <= 0 && (
               <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
                 <TouchableOpacity
                   onPress={() => {
@@ -441,7 +441,7 @@ const Dashboard = () => {
               </Text>
             </TouchableOpacity>
           </View>
-          {!loading && orders?.data.length <= 0 && (
+          {!loading && orders?.data?.length <= 0 && (
             <View>
               <Text style={[tw('font-bold mb-2'), styles.subheader]}>
                 No Open Order

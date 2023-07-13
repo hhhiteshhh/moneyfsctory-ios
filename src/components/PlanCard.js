@@ -9,7 +9,16 @@ import Exchange from '../assets/icons/exchange.svg';
 import ExchangeSelected from '../assets/icons/exchangeSelected.svg';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
-const PlanCard = ({title, color, index, id, price, exchange, type}) => {
+const PlanCard = ({
+  title,
+  color,
+  index,
+  id,
+  price,
+  exchange,
+  type,
+  description,
+}) => {
   const tw = useTailwind();
   var formatter = new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -39,21 +48,11 @@ const PlanCard = ({title, color, index, id, price, exchange, type}) => {
         {index === id ? <Selected /> : <Unselected />}
       </View>
       <View style={[tw('flex items-start justify-start flex-row'), {}]}>
-        {/* 
-        <Text
-          style={[
-            tw('font-normal mt-2 pr-9'),
-            {fontSize: 14, lineHeight: 21, color: Colors.white},
-          ]}>
-          Make your plans easy by subscribing for free. get it now.
-        </Text> */}
         <View
           style={[
             tw(''),
             {
-              borderRightWidth: 1,
-              borderColor: Colors.yellow,
-              width: '100%',
+              width: '60%',
             },
           ]}>
           <Text
@@ -80,15 +79,29 @@ const PlanCard = ({title, color, index, id, price, exchange, type}) => {
             </Text>
           </Text>
         </View>
-        {/* <View style={[tw('w-[40%]')]}>
-          <Text
-            style={[
-              tw('font-normal pl-2'),
-              {fontSize: 12, lineHeight: 21, color: Colors.white},
-            ]}>
-            Make your plans easy by subscribing for free. get it now.
-          </Text>
-        </View> */}
+        <View
+          style={[
+            tw('w-[40%] pl-2'),
+            {borderLeftWidth: 1, borderColor: Colors.yellow},
+          ]}>
+          {description.map((item, index) => (
+            <View key={index} style={[tw('flex my-1 flex-row items-start')]}>
+              <View
+                style={[
+                  tw('h-2 w-2 rounded-full'),
+                  {backgroundColor: Colors.dullwhite},
+                ]}
+              />
+              <Text
+                style={[
+                  tw('ml-1 -mt-[6px] font-normal'),
+                  {fontSize: 12, lineHeight: 18, color: Colors.white},
+                ]}>
+                {item}
+              </Text>
+            </View>
+          ))}
+        </View>
       </View>
       <View style={[tw('mt-2 flex items-center justify-start flex-row'), {}]}>
         {index === id ? <ExchangeSelected /> : <Exchange />}
