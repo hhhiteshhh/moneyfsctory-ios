@@ -73,14 +73,14 @@ const Invoice = ({data}) => {
           </View>
         </View>
       </View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={[
           tw('flex flex-row items-center justify-between p-4 rounded-xl -mt-3'),
           styles.download,
         ]}>
         <Text style={[tw('font-medium'), styles.value2]}>Download</Text>
         <Download />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

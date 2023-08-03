@@ -121,11 +121,11 @@ const ProfilePage = ({setProfileDrawer}) => {
             />
             {/* <ProfileTab Icon={MR} action={dummy} title={'My Reports'} /> */}
             {/* <ProfileTab Icon={MB} action={dummy} title={'My Brokers'} /> */}
-            <ProfileTab
+            {/* <ProfileTab
               Icon={SP}
               action={goToSubscribedPlan}
               title={'Subscription Plans'}
-            />
+            /> */}
             {/* <ProfileTab Icon={FB} action={dummy} title={'Feedback'} /> */}
             {/* <ProfileTab Icon={SQ} action={dummy} title={'Subscribed Quants'} /> */}
             {/* <ProfileTab Icon={NF} action={dummy} title={'Notifications'} toggle /> */}

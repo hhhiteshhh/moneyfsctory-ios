@@ -173,6 +173,10 @@
   margin-top: -0.75rem
 }
 
+.-mt-\[6px\] {
+  margin-top: -6px
+}
+
 .mb-2 {
   margin-bottom: 0.5rem
 }
@@ -275,18 +279,6 @@
 
 .mt-9 {
   margin-top: 2.25rem
-}
-
-.-mt-\[6\] {
-  margin-top: -6
-}
-
-.-mt-\[6p\] {
-  margin-top: -6p
-}
-
-.-mt-\[6px\] {
-  margin-top: -6px
 }
 
 .flex {
@@ -463,10 +455,6 @@
 
 .w-full {
   width: 100%
-}
-
-.w-\[45\%\] {
-  width: 45%
 }
 
 .flex-1 {
@@ -691,20 +679,12 @@
   padding-right: 2rem
 }
 
-.pr-9 {
-  padding-right: 2.25rem
-}
-
 .pt-1 {
   padding-top: 0.25rem
 }
 
 .pt-3 {
   padding-top: 0.75rem
-}
-
-.pl-4 {
-  padding-left: 1rem
 }
 
 .text-center {
